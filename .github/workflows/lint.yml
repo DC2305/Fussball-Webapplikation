@@ -1,0 +1,39 @@
+name: Lint
+
+on:
+  push: null
+  pull_request: null
+
+jobs:
+  build:
+    name: Lint
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      packages: read
+      statuses: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Remove composer file (workaround because php-xml not installed in super-linter)
+        run: rm composer.json composer.lock
+
+      - name: Run ESLint --fix
+        run: npx eslint --fix script.js
+
+      - name: Super-linter
+        uses: super-linter/super-linter@v6.2.0
+        env:
+          DEFAULT_BRANCH: main
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VALIDATE_JAVASCRIPT_STANDARD: false
+          VALIDATE_PHP_BUILTIN: false
+          VALIDATE_PHP_PHPSTAN: false
+          VALIDATE_PHP_PSALM: false
+          VALIDATE_JSCPD: false
+          VALIDATE_JSON: false

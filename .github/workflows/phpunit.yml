@@ -1,0 +1,21 @@
+name: PHPUnit
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Install composer dependencies
+      run: composer install --no-scripts
+
+    - name: Run test suite
+      run: vendor/bin/phpunit tests
