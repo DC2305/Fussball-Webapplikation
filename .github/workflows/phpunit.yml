@@ -16,6 +16,7 @@ jobs:
 
     - name: Install composer dependencies
       run: composer install --no-scripts
+    - name: Update composer 
       run: composer update
 
     - name: Run test suite
