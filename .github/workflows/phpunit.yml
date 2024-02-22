@@ -12,8 +12,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - uses: shivammathur/setup-php@v2
-      with:
+    - name: Install dependencies
+      uses: php-actions/composer@v6
         php-version: 8.2
     - run: vendor/bin/phpunit tests
