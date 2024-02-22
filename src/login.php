@@ -163,7 +163,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 ); ?></span>
             </div>
             <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Login" style="color: white; background-color: #2E9DE7; border-radius: 12px;">
+                <input type="submit" class="btn btn-primary" value="Login" 
+                style="color: white; background-color: #2E9DE7; border-radius: 12px;">
             </div>
             <p>Haben Sie kein Account? 
                 <a href="register.php">Hier registrieren</a>.

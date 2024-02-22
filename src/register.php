@@ -181,9 +181,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </span>
             </div>
             <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Registrieren" style="color: white; background-color: #2E9DE7; border-radius: 12px;">
-                <input type="reset" 
-                class="btn btn-secondary ml-2" value="Zurücksetzen" style="color: white; background-color: #2E9DE7; border-radius: 12px;">
+                <input type="submit" class="btn btn-primary" value="Registrieren" 
+                style="color: white; background-color: #2E9DE7; border-radius: 12px;">
+                <input type="reset" class="btn btn-secondary ml-2" value="Zurücksetzen" 
+                style="color: white; background-color: #2E9DE7; border-radius: 12px;">
             </div>
             <p>Haben Sie bereits ein Account? 
                 <a href="login.php">Hier einloggen</a>.
