@@ -12,9 +12,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v1
 
-    - name: Install dependencies
-      uses: php-actions/composer@v6
-      with:
-        command: vendor/bin/phpunit tests
+    - name: Install composer dependencies
+      run: composer install --no-scripts
+
+    - name: Run test suite
+      run: vendor/bin/phpunit tests
