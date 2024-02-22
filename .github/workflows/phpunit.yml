@@ -14,10 +14,11 @@ jobs:
     steps:
     - uses: actions/checkout@v1
 
-    - name: Install composer dependencies
-      run: composer install --no-scripts
     - name: Update composer 
       run: composer update
+
+    - name: Install composer dependencies
+      run: composer install --no-scripts
 
     - name: Run test suite
       run: vendor/bin/phpunit tests
