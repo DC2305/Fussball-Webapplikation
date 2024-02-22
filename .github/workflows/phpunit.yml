@@ -21,4 +21,6 @@ jobs:
         version: 1
 
     - name: Run test suite
-      run: vendor/bin/phpunit tests
+      with:
+        php_version: "8.2"
+        run: vendor/bin/phpunit tests
