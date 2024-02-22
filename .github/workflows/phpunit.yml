@@ -16,6 +16,7 @@ jobs:
 
     - name: Install composer dependencies
       run: composer install --no-scripts
+      run: composer update
 
     - name: Run test suite
       run: vendor/bin/phpunit tests
