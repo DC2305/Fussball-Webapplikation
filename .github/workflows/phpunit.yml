@@ -17,10 +17,4 @@ jobs:
     - name: Install dependencies
       uses: php-actions/composer@v6
       with:
-        php_version: "8.2"
-        version: 1
-
-    - name: Run test suite
-      with:
-        php_version: "8.2"
-    - run: vendor/bin/phpunit tests
+        command: vendor/bin/phpunit tests
