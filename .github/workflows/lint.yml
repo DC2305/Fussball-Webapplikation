@@ -24,7 +24,7 @@ jobs:
         run: rm composer.json composer.lock
 
       - name: Run ESLint --fix
-        run: npx eslint --fix script.js
+        run: npx eslint --fix js/script.js
 
       - name: Super-linter
         uses: super-linter/super-linter@v6.2.0
