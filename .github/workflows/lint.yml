@@ -17,15 +17,14 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
-      - name: Remove composer file (workaround because php-xml not installed in super-linter)
-        run: rm composer.json composer.lock
+        with:
+          fetch-depth: 0
 
       - name: Run ESLint --fix
         run: npx eslint --fix js/script.js
 
       - name: Super-linter
-        uses: super-linter/super-linter@v5.7.2
+        uses: super-linter/super-linter@v6.2.0
         env:
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
