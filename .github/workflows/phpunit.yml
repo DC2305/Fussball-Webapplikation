@@ -14,9 +14,6 @@ jobs:
     steps:
     - uses: actions/checkout@v1
 
-    - name: Remove composer file
-      run: rm composer.json composer.lock
-
     - name: Install composer dependencies
       run: composer install --no-scripts
 
