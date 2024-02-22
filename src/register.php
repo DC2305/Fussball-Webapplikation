@@ -13,7 +13,7 @@
  *
  * @license https://opensource.org/license/bsd-3-clause/ BSD-3-Clause
  *
- * @link http://localhost/Testkalender/
+ * @link http://localhost/Fussball-Webapplikation/src/
  */
 
 require_once "config.php";
@@ -129,7 +129,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </style>
 
 </head>
-<body style="background-color: #dfeff7">
+<body>
     <div class="wrapper">
         <h2 style="text-align: center">Registrieren</h2>
         <form action="<?php echo htmlspecialchars(
