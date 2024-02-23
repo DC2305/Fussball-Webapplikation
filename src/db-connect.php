@@ -1,13 +1,13 @@
 <?php
 
 /**
- * DB-Konfiguration
+ * DB-Verbindung
  *
  * PHP version 8.2.12
  *
  * @category Web-Applikation_Für_Fussballvereine
  *
- * @package Datenbank
+ * @package FullCalendar
  *
  * @author David Cvetkovic <david.cvetkovic@sluz.ch>
  *
@@ -21,10 +21,7 @@ $username = 'root';
 $password = '';
 $dbname   = 'fussball';
 
-// Mit Datenbank verbinden
-$link = mysqli_connect($host, $username, $password, $dbname);
-
-// Verbindung überprüfen
-if ($link === false) {
-    die("ERROR: Konnte nicht verbinden. " . mysqli_connect_error());
+$conn = new mysqli($host, $username, $password, $dbname);
+if (!$conn) {
+    die("Cannot connect to the database." . $conn->error);
 }

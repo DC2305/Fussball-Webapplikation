@@ -37,3 +37,4 @@ jobs:
           VALIDATE_SQL: false
           VALIDATE_SQLFLUFF: false
           VALIDATE_CHECKOV: false
+          FILTER_REGEX_EXCLUDE: bootstrap.min.css

@@ -16,19 +16,13 @@
  * @link http://localhost/Fussball-Webapplikation/src/
  */
 
-$host     = 'localhost';
-$username = 'root';
-$password = '';
-$dbname   = 'fussball';
-  
-// Mit Datenbank verbinden
-$link = mysqli_connect($host, $username, $password, $dbname);
+$connect = new PDO('mysql:host=localhost;dbname=fussball', 'root', '');
 
 $data = array();
 
 $query = "SELECT * FROM kalender ORDER BY id";
 
-$statement = $link->prepare($query);
+$statement = $connect->prepare($query);
 
 $statement->execute();
 
@@ -38,7 +32,7 @@ foreach ($result as $row) {
     $data[] = array(
         'id' => $row["id"],
         'title' => $row["titel"],
-        'description' => $row["beschreibung"],
+        'description' => $row['beschreibung'],
         'start' => $row["starten"],
         'end' => $row["enden"]
     );

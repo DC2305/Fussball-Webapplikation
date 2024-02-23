@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Ereignis in DB aktualisieren
+ * Ereignis in DB hinzufügen
  *
  * PHP version 8.2.12
  *
@@ -16,24 +16,17 @@
  * @link http://localhost/Fussball-Webapplikation/src/
  */
 
-//update.php
-
 $connect = new PDO('mysql:host=localhost;dbname=fussball', 'root', '');
 
-if (isset($_POST["id"])) {
-    $query = "UPDATE kalender SET titel=:titel, 
-    beschreibung=:beschreibung, 
-    starten=:starten, 
-    enden=:enden 
-    WHERE id=:id";
+if (isset($_POST["title"])) {
+    $query = "INSERT INTO kalender (titel, starten, enden) 
+    VALUES (:titel, :starten, :enden)";
     $statement = $connect->prepare($query);
     $statement->execute(
         array(
         ':titel'  => $_POST['title'],
-        ':beschreibung'  => $_POST['description'],
         ':starten' => $_POST['start'],
-        ':enden' => $_POST['end'],
-        ':id'   => $_POST['id']
+        ':enden' => $_POST['end']
         )
     );
 }

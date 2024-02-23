@@ -77,7 +77,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
         <input type="submit" value="Logout" class="topright"
         style="color: white; background-color: #2E9DE7; border-radius: 12px;">
     </form>
-    <h1 style="text-align: center;">Testkalender</h1>
+    <h2 style="text-align: center;">Testkalender</h2>
     <br />
     <div class="container py-5" id="page-container">
         <div class="row">
@@ -97,31 +97,35 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                                 <div class="form-group mb-2">
                                     <label for="title" 
                                     class="control-label">Titel</label>
-                                    <input type="text" class="form-control form-control-sm rounded-0" 
+                                    <input type="text" 
+                                    class="form-control form-control-sm rounded-0" 
                                     name="title"
-                                    id="title" required>
+                                        id="title" required>
                                 </div>
                                 <div class="form-group mb-2">
                                     <label for="description" 
                                     class="control-label">Beschreibung</label>
-                                    <textarea rows="3" class="form-control form-control-sm rounded-0" 
+                                    <textarea rows="3" 
+                                    class="form-control form-control-sm rounded-0" 
                                     name="description"
-                                    id="description" required></textarea>
+                                        id="description" required></textarea>
                                 </div>
                                 <div class="form-group mb-2">
                                     <label for="start_datetime" 
-                                    class="control-label">Start (Datum/Uhrzeit)</label>
-                                    <input type="datetime-local" class="form-control form-control-sm rounded-0"
-                                    name="start_datetime" 
-                                    id="start_datetime" required>
+                                    class="control-label">Start</label>
+                                    <input type="datetime-local" 
+                                    class="form-control form-control-sm rounded-0"
+                                        name="start_datetime" 
+                                        id="start_datetime" required>
                                 </div>
                                 <div class="form-group mb-2">
                                     <label for="end_datetime" 
-                                    class="control-label">Ende (Datum/Uhrzeit)</label>
-                                    <input type="datetime-local" class="form-control form-control-sm rounded-0"
-                                    name="end_datetime" 
-                                    id="end_datetime" required>
-                                </div>    
+                                    class="control-label">Ende</label>
+                                    <input type="datetime-local" 
+                                    class="form-control form-control-sm rounded-0"
+                                        name="end_datetime" 
+                                        id="end_datetime" required>
+                                </div>
                             </form>
                         </div>
                     </div>

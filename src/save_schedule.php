@@ -16,24 +16,18 @@
  * @link http://localhost/Fussball-Webapplikation/src/
  */
 
-$host     = 'localhost';
-$username = 'root';
-$password = '';
-$dbname   = 'fussball';
-   
-// Mit Datenbank verbinden
-$link = mysqli_connect($host, $username, $password, $dbname);
+$connect = new PDO('mysql:host=localhost;dbname=fussball', 'root', '');
 
 if ($_SERVER['REQUEST_METHOD'] != 'POST') {
     echo "<script>
-                alert('Error: Keine Daten zum Speichern.'); location.replace('./')
+                alert('Error: Keine Daten zum Speichern.'); location.replace('./') 
           </script>";
-    $link->close();
+    $connect->close();
     exit;
 }
 extract($_POST);
 $allday = isset($allday);
- 
+
 if (empty($id)) {
     $sql = "INSERT INTO `kalender` (`titel`,`beschreibung`,`starten`,`enden`) 
     VALUES ('$title','$description','$start_datetime', '$end_datetime')";
@@ -45,16 +39,16 @@ if (empty($id)) {
     `enden` = '{$end_datetime}' 
     where `id` = '{$id}'";
 }
-$save = $link->query($sql);
+$save = $connect->query($sql);
 if ($save) {
-    echo "<script>
+    echo "<script> 
                 alert('Ereignis erfolgreich gespeichert.'); location.replace('./')
-           </script>";
+          </script>";
 } else {
-     echo "<pre>";
-     echo "Ein Fehler ist aufgetreten.<br>";
-     echo "Error: " . $link->error . "<br>";
-     echo "SQL: " . $sql . "<br>";
-     echo "</pre>";
+    echo "<pre>";
+    echo "Ein Fehler ist aufgetreten.<br>";
+    echo "Error: " . $connect->error . "<br>";
+    echo "SQL: " . $sql . "<br>";
+    echo "</pre>";
 }
-$link->close();
+$connect->close();
