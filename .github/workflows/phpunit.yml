@@ -16,4 +16,4 @@ jobs:
       with:
         php-version: "latest"
         tools: phpunit
-    - run: ./vendor/bin/phpunit tests
+    - run: bin/phpunit tests
