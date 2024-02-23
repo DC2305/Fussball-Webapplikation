@@ -15,5 +15,5 @@ jobs:
     - uses: "shivammathur/setup-php@v2"
       with:
         php-version: "latest"
-    - uses: "ramsey/composer-install@v2"
+        tools: phpunit
     - run: vendor/bin/phpunit tests
