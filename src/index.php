@@ -77,7 +77,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
         <input type="submit" value="Logout" class="topright"
         style="color: white; background-color: #2E9DE7; border-radius: 12px;">
     </form>
-    <h2 style="text-align: center;">Testkalender</h2>
+    <h1 style="text-align: center;">Kalender</h1>
     <br />
     <div class="container py-5" id="page-container">
         <div class="row">
