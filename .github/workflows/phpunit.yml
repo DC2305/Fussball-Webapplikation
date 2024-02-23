@@ -16,5 +16,4 @@ jobs:
       with:
         php-version: "latest"
     - uses: "ramsey/composer-install@v2"
-      with:
     - run: vendor/bin/phpunit tests
