@@ -105,7 +105,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                                 <div class="form-group mb-2">
                                     <label for="description" 
                                     class="control-label">Beschreibung</label>
-                                    <textarea rows="3" 
+                                    <textarea rows="6" 
                                     class="form-control form-control-sm rounded-0" 
                                     name="description"
                                         id="description" required></textarea>
@@ -160,12 +160,12 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                     <div class="container-fluid">
                         <label for="title">Titel:</label>
                         <br>
-                        <input type="text" id="title"></input>
+                        <textarea type="text" id="title" rows="3"></textarea>
                         <br>
                         <br>
                         <label for="description">Beschreibung:</label>
                         <br>
-                        <input type="text" id="description"></input />
+                        <textarea type="text" id="description" rows="6"></textarea>
                         <br>
                         <br>
                         <label for="start">Start:</label>
@@ -178,8 +178,10 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                         <input type="text" id="end"></input />
                     </div>
                 </div>
+                
                 <div class="modal-footer rounded-0">
                     <div class="text-end">
+                        <!--
                         <button type="button" 
                         class="btn btn-primary btn-sm rounded-0" id="edit"
                             data-id="">Bearbeiten
@@ -188,6 +190,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                         class="btn btn-danger btn-sm rounded-0" id="delete"
                             data-id="">Löschen
                         </button>
+                        -->
                         <button type="button" 
                         class="btn btn-secondary btn-sm rounded-0"
                             onclick="$('#event-details-modal').modal('hide');">

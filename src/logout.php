@@ -13,7 +13,7 @@
  *
  * @license https://opensource.org/license/bsd-3-clause/ BSD-3-Clause
  *
- * @link http://localhost/Testkalender/
+ * @link http://localhost/Fussball-Webapplikation/src/
  */
 
 // Session initialisieren
