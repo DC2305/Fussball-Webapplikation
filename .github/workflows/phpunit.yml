@@ -12,9 +12,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - uses: actions/checkout@v4
     - uses: "shivammathur/setup-php@v2"
       with:
         php-version: "latest"
         tools: phpunit
-    - run: composer update
     - run: vendor/bin/phpunit tests
