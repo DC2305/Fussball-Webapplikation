@@ -60,7 +60,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
             <hr>
         </div>
     </div>
-    <span style="font-size: 30px; cursor: pointer" onclick="openNav()">&#9776;</span>
+    <span style="font-size: 30px; cursor: pointer; color: #2E9DE7;" onclick="openNav()">&#9776;</span>
 
     <form action="logout.php" method="post">
         <input type="submit" value="Logout" class="topright"
@@ -78,6 +78,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                     <div class="card-header bg-gradient bg-primary text-light">
                         <h4 class="card-title">Planungs&shy;formular</h4>
                     </div>
+                    <!--Planungsformular-->
                     <div class="card-body">
                         <div class="container-fluid">
                             <form action="save_schedule.php" 
@@ -133,7 +134,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
         </div>
     </div>
 
-
+    <!--Informationen zum Eintrag-->
     <div class="modal fade" tabindex="-1" 
     data-bs-backdrop="static" id="event-details-modal">
         <div class="modal-dialog modal-dialog-centered">
