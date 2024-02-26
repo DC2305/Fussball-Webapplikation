@@ -7,7 +7,7 @@
  *
  * @category Web-Applikation_Für_Fussballvereine
  *
- * @package Startseite
+ * @package Kalender
  *
  * @author David Cvetkovic <david.cvetkovic@sluz.ch>
  *
@@ -46,6 +46,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="../js/script.js"></script>
+    <script src="../js/menu.js"></script>
 </head>
 <body>
     <div id="myNav" class="overlay">
@@ -53,25 +54,13 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
         <div class="overlay-content">
             <a href="index.php">Kalender</a>
             <hr>
-            <a href="#">Dashboard</a>
+            <a href="dashboard.php">Dashboard</a>
             <hr>
-            <a href="#">Analysen</a>
+            <a href="analysen.php">Analysen</a>
             <hr>
         </div>
     </div>
     <span style="font-size: 30px; cursor: pointer" onclick="openNav()">&#9776;</span>
-
-    <script>
-        // Menü öffnen
-        function openNav() {
-        document.getElementById("myNav").style.width = "100%";
-        }
-
-        // Menü schliessen
-        function closeNav() {
-        document.getElementById("myNav").style.width = "0%";
-        }
-    </script>
 
     <form action="logout.php" method="post">
         <input type="submit" value="Logout" class="topright"
