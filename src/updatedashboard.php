@@ -19,7 +19,7 @@
 $connection = mysqli_connect("localhost", "root", "");
 $db = mysqli_select_db($connection, 'fussball');
 
-if (isset($_POST['updatedata'])) { 
+if (isset($_POST['updatedata'])) {
         $id = $_POST['update_id'];
         $hometeam = $_POST['hometeam'];
         $awayteam = $_POST['awayteam'];

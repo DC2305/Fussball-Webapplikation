@@ -228,7 +228,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                                 </td>
                             </tr>
                         </tbody>
-                                <?php           
+                                <?php
                             }
                         } else {
                             echo "Kein Eintrag gefunden";
