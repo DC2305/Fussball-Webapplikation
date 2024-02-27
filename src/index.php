@@ -64,8 +64,8 @@ if (array_key_exists("ics-button", $_POST)) {
         $name = $event_details['titel'];
         $description = $event_details['beschreibung'];
         $ics_data .= "BEGIN:VEVENT\n";
-        $ics_data .= "DTSTART;TZID=Europe/Bern:".$start_date."\n";
-        $ics_data .= "DTEND:".$end_date."\n";
+        $ics_data .= "DTSTART;TZID=Europe/Bern:" . $start_date . "\n";
+        $ics_data .= "DTEND:" . $end_date . "\n";
         $ics_data .= "DTSTAMP:" . date('Ymd') . "T" . date('His') . "Z\n";
         $ics_data .= "DESCRIPTION:" . $description . "\n";
         $ics_data .= "SUMMARY:" . $name . "\n";
