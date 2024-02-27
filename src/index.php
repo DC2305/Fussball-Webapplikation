@@ -25,6 +25,63 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     exit;
 }
 
+require_once "config.php";
+
+?>
+
+<?php
+
+if (array_key_exists("ics-button", $_POST)) {
+    $sql = mysqli_query($link, "SELECT * FROM kalender");
+    $ics_data = "BEGIN:VCALENDAR\n";
+    $ics_data .= "VERSION:2.0\n";
+    $ics_data .= "PRODID:PHP\n";
+    $ics_data .= "METHOD:PUBLISH\n";
+    $ics_data .= "X-WR-CALNAME:Schedule\n";
+    $ics_data .= "X-WR-TIMEZONE:Europe/Bern\n";
+    $ics_data .= "BEGIN:VTIMEZONE\n";
+    $ics_data .= "TZID:Europe/Bern\n";
+    $ics_data .= "BEGIN:DAYLIGHT\n";
+    $ics_data .= "TZOFFSETFROM:-0500\n";
+    $ics_data .= "TZOFFSETTO:-0400\n";
+    $ics_data .= "DTSTART:1403086496\n";
+    $ics_data .= "RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU\n";
+    $ics_data .= "TZNAME:EDT\n";
+    $ics_data .= "END:DAYLIGHT\n";
+    $ics_data .= "BEGIN:STANDARD\n";
+    $ics_data .= "TZOFFSETFROM:-0400\n";
+    $ics_data .= "TZOFFSETTO:-0500\n";
+    $ics_data .= "DTSTART:1403086496\n";
+    $ics_data .= "RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU\n";
+    $ics_data .= "TZNAME:EST\n";
+    $ics_data .= "END:STANDARD\n";
+    $ics_data .= "END:VTIMEZONE\n";
+
+    while ($event_details = mysqli_fetch_assoc($sql)) {
+        $id = $event_details['id'];
+        $start_date = $event_details['starten'];
+        $end_date = $event_details['enden'];
+        $name = $event_details['titel'];
+        $description = $event_details['beschreibung'];
+        $ics_data .= "BEGIN:VEVENT\n";
+        $ics_data .= "DTSTART;TZID=Europe/Bern:".$start_date."\n";
+        $ics_data .= "DTEND:".$end_date."\n";
+        $ics_data .= "DTSTAMP:" . date('Ymd') . "T" . date('His') . "Z\n";
+        $ics_data .= "DESCRIPTION:" . $description . "\n";
+        $ics_data .= "SUMMARY:" . $name . "\n";
+        $ics_data .= "UID:" . $id . "\n";
+        $ics_data .= "SEQUENCE:0\n";
+        $ics_data .= "END:VEVENT\n";
+    }
+    $ics_data .= "END:VCALENDAR\n";
+
+    $filename = "fussballkalender.ics";
+    header("Content-type:text/calendar");
+    header("Content-Disposition: attachment; filename=$filename");
+    echo $ics_data;
+    exit;
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -191,6 +248,10 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
             </div>
         </div>
     </div>
+
+    <form method="post">
+        <input type="submit" name="ics-button" value="Kalender als ICS-Datei herunterladen" />
+    </form>
 
 </body>
 </html>
