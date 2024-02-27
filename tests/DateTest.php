@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @license https://opensource.org/license/bsd-3-clause/ BSD-3-Clause
  *
- * @link http://localhost/Testkalender/
+ * @link http://localhost/Fussball-Webapplikation/src/
  */
 
 final class DateTest extends TestCase
@@ -47,14 +47,8 @@ final class DateTest extends TestCase
      *
      * @return string
      */
-    public function testDBConfig(): void
+    public function testDate(): void
     {
         $this->assertTrue(true);
-
-        /*$string = "testlogin";
-
-        $dbname = Config::$string;
-
-        $this->assertSame($string, $dbname);*/
     }
 }

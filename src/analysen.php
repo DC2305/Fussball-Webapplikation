@@ -25,6 +25,8 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     exit;
 }
 
+require_once "config.php";
+
 ?>
 
 <!DOCTYPE html>
@@ -57,5 +59,13 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
         style="color: white; background-color: #2E9DE7; border-radius: 12px;">
     </form>
     <h1 style="text-align: center;">Analysen</h1>
+    <form>
+        <label>Analysen:</label>
+        <input type="text" name="analysis" />
+        <br>
+        <select>
+
+        </select>
+    </form>
 </body>
 </html>
