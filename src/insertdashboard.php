@@ -16,11 +16,10 @@
  * @link http://localhost/Fussball-Webapplikation/src/
  */
 
-$connection = mysqli_connect("localhost","root","");
+$connection = mysqli_connect("localhost", "root", "");
 $db = mysqli_select_db($connection, 'fussball');
 
-if(isset($_POST['insertdata']))
-{
+if (isset($_POST['insertdata'])) {
     $hometeam = $_POST['hometeam'];
     $awayteam = $_POST['awayteam'];
     $homegoals = $_POST['homegoals'];
@@ -31,15 +30,10 @@ if(isset($_POST['insertdata']))
     VALUES ('$hometeam','$awayteam','$homegoals','$awaygoals','$notes')";
     $query_run = mysqli_query($connection, $query);
 
-    if($query_run)
-    {
+    if ($query_run) {
         echo '<script> alert("Daten gespeichert"); </script>';
         header('Location: dashboard.php');
-    }
-    else
-    {
+    } else {
         echo '<script> alert("Daten nicht gespeichert"); </script>';
     }
 }
-
-?>

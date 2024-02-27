@@ -17,3 +17,13 @@ CREATE TABLE `kalender` (
  `enden` datetime NOT NULL,
  PRIMARY KEY (`id`)
 );
+
+CREATE TABLE `dashboard` (
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+ `heimmannschaft` varchar(50) NOT NULL,
+ `gastmannschaft` varchar(50) NOT NULL,
+ `heimtore` int(2) NOT NULL,
+ `gasttore` int(2) NOT NULL,
+ `notizen` text NOT NULL,
+ PRIMARY KEY (`id`);
+)
