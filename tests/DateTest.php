@@ -1,7 +1,7 @@
 <?php
 
 /**
- * DB-Konfiguration
+ * Datum-Test
  *
  * PHP version 8.2.12
  *
@@ -23,7 +23,7 @@ namespace tests;
 use PHPUnit\Framework\TestCase;
 
 /**
- * DB-Konfiguration
+ * Datum-Test
  *
  * PHP version 8.2.12
  *
@@ -41,7 +41,7 @@ use PHPUnit\Framework\TestCase;
 final class DateTest extends TestCase
 {
     /**
-     * DB-Konfiguration
+     * Datum-Test
      *
      * PHP version 8.2.12
      *

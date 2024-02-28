@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Testkalender
+ * Dashboard
  *
  * PHP version 8.2.12
  *
@@ -78,23 +78,23 @@ require_once "config.php";
                 <form action="insertdashboard.php" method="POST">
                     <div class="modal-body">
                         <div class="form-group">
-                            <label>Heimmannschaft</label>
+                            <label>Heimmannschaft:</label>
                             <input type="text" name="hometeam" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label>Heimtore</label>
+                            <label>Heimtore:</label>
                             <input type="number" name="homegoals" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label>Gasttore</label>
+                            <label>Gasttore:</label>
                             <input type="number" name="awaygoals" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label>Gastmannschaft</label>
+                            <label>Gastmannschaft:</label>
                             <input type="text" name="awayteam" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label>Notizen</label>
+                            <label>Notizen:</label>
                             <textarea type="text" name="notes" class="form-control" required></textarea>
                         </div>
                     </div>
@@ -122,23 +122,23 @@ require_once "config.php";
                     <div class="modal-body">
                         <input type="hidden" name="update_id" id="update_id">
                         <div class="form-group">
-                            <label>Heimmannschaft</label>
+                            <label>Heimmannschaft:</label>
                             <input type="text" name="hometeam" id="hometeam" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label>Heimtore</label>
+                            <label>Heimtore:</label>
                             <input type="text" name="homegoals" id="homegoals" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label>Gasttore</label>
+                            <label>Gasttore:</label>
                             <input type="text" name="awaygoals" id="awaygoals" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label>Gastmannschaft</label>
+                            <label>Gastmannschaft:</label>
                             <input type="text" name="awayteam" id="awayteam" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label>Notizen</label>
+                            <label>Notizen:</label>
                             <textarea type="text" name="notes" id="notes" class="form-control" required></textarea>
                         </div>
                     </div>
@@ -195,6 +195,8 @@ require_once "config.php";
                     $statement = $link->prepare($query);
                     $query_run = mysqli_query($link, $query);
                     $statement->execute();
+                    $statement->close();
+                    $link->close();
                     ?>
                     <table id="datatableid" class="table table-bordered table-light">
                         <thead>

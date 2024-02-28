@@ -1,13 +1,13 @@
 <?php
 
 /**
- * Eintrag von Dashboard löschen
+ * Eintrag aus Analysenseite löschen
  *
  * PHP version 8.2.12
  *
  * @category Web-Applikation_Für_Fussballvereine
  *
- * @package Dashboard_Eintrag_Löschen
+ * @package Analysen_Eintrag_Löschen
  *
  * @author David Cvetkovic <david.cvetkovic@sluz.ch>
  *
@@ -21,7 +21,7 @@ require_once "config.php";
 if (isset($_POST['deletedata'])) {
     $id = $_POST['delete_id'];
 
-    $query = "DELETE FROM dashboard WHERE id='$id'";
+    $query = "DELETE FROM analysen WHERE id='$id'";
     $statement = $link->prepare($query);
     $query_run = mysqli_query($link, $query);
     $statement->execute();
@@ -30,7 +30,7 @@ if (isset($_POST['deletedata'])) {
 
     if ($query_run) {
         echo '<script> alert("Daten gelöscht"); </script>';
-        header("Location:dashboard.php");
+        header("Location:analysen.php");
     } else {
         echo '<script> alert("Daten nicht gelöscht"); </script>';
     }

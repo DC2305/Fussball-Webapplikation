@@ -28,16 +28,10 @@ CREATE TABLE `dashboard` (
  PRIMARY KEY (`id`)
 );
 
-CREATE TABLE `mannschaften` (
- `id` int(11) NOT NULL AUTO_INCREMENT,
- `mannschaft` varchar(50) NOT NULL,
- PRIMARY KEY (`id`)
-);
-
 CREATE TABLE `analysen` (
  `id` int(11) NOT NULL AUTO_INCREMENT,
- `analyse` text NOT NULL,
- `mannschaftid` int(11) DEFAULT NULL,
- PRIMARY KEY (`id`),
- FOREIGN KEY (`mannschaftid`) REFERENCES `mannschaften`(`id`)
+ `mannschaft` varchar(50) NOT NULL,
+ `stärken` text NOT NULL,
+ `schwächen` text NOT NULL,
+ PRIMARY KEY (`id`)
 );

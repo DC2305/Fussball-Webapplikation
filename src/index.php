@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Testkalender
+ * Kalender
  *
  * PHP version 8.2.12
  *

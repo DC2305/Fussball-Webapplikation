@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Testkalender
+ * Eintrag auf Dashbaord aktualisieren
  *
  * PHP version 8.2.12
  *
@@ -16,8 +16,7 @@
  * @link http://localhost/Fussball-Webapplikation/src/
  */
 
-$connection = mysqli_connect("localhost", "root", "");
-$db = mysqli_select_db($connection, 'fussball');
+require_once "config.php";
 
 if (isset($_POST['updatedata'])) {
         $id = $_POST['update_id'];
@@ -31,7 +30,11 @@ if (isset($_POST['updatedata'])) {
         SET heimmannschaft='$hometeam', gastmannschaft='$awayteam', heimtore='$homegoals', 
         gasttore='$awaygoals', notizen = '$notes'
         WHERE id='$id'  ";
-        $query_run = mysqli_query($connection, $query);
+        $statement = $link->prepare($query);
+        $query_run = mysqli_query($link, $query);
+        $statement->execute();
+        $statement->close();
+        $link->close();
 
     if ($query_run) {
         echo '<script> alert("Daten aktualisiert"); </script>';
