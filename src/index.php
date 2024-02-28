@@ -250,7 +250,10 @@ if (array_key_exists("ics-button", $_POST)) {
     </div>
 
     <form method="post">
-        <input type="submit" name="ics-button" value="Kalender als ICS-Datei herunterladen" />
+        <center>
+            <input type="submit" name="ics-button" value="Kalender als ICS-Datei herunterladen" 
+            style="color: white; background-color: #2E9DE7; border-radius: 12px;"/>
+        </center>
     </form>
 
 </body>

@@ -25,6 +25,8 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     exit;
 }
 
+require_once "config.php";
+
 ?>
 
 <!DOCTYPE html>
@@ -189,18 +191,17 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
             <div class="card">
                 <div class="card-body">
                     <?php
-                    $connection = mysqli_connect("localhost", "root", "");
-                    $db = mysqli_select_db($connection, 'fussball');
-
                     $query = "SELECT * FROM dashboard";
-                    $query_run = mysqli_query($connection, $query);
+                    $statement = $link->prepare($query);
+                    $query_run = mysqli_query($link, $query);
+                    $statement->execute();
                     ?>
                     <table id="datatableid" class="table table-bordered table-light">
                         <thead>
                             <tr>
                                 <th hidden scope="col">ID</th>
                                 <th scope="col">Heimmannschaft</th>
-                                <th scope="col">Heimmtore</th>
+                                <th scope="col">Heimtore</th>
                                 <th scope="col">Gasttore</th>
                                 <th scope="col">Gastmannschaft</th>
                                 <th hidden scope="col">Notizen</th>

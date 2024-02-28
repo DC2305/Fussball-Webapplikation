@@ -27,6 +27,17 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 
 require_once "config.php";
 
+if (isset($_POST['submit'])) {
+    $name = $_POST["opponentanalysis"];
+    $mannschaft = $_POST['mannschaft'];
+    $stmt = $link->prepare("INSERT INTO analysen (analyse, mannschaftid) VALUES (?, ?)");
+    $stmt->bind_param("si", $name, $mannschaft);
+    $stmt->execute();
+    $stmt->close();
+    $link->close();
+    header('Location: analysen.php');
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -34,11 +45,13 @@ require_once "config.php";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Analysen</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <script src="../js/menu.js"></script>
+
 </head>
 <body>
     <div id="myNav" class="overlay">
@@ -59,13 +72,60 @@ require_once "config.php";
         style="color: white; background-color: #2E9DE7; border-radius: 12px;">
     </form>
     <h1 style="text-align: center;">Analysen</h1>
-    <form>
-        <label>Analysen:</label>
-        <input type="text" name="analysis" />
-        <br>
-        <select>
-
-        </select>
-    </form>
+    <div class="w3-container">
+        <button onclick="document.getElementById('id01').style.display='block'" 
+        class="w3-button w3-blue">Unsere Mannschaft</button>
+        <div id="id01" class="w3-modal">
+            <div class="w3-modal-content">
+                <div class="w3-container">
+                    <span onclick="document.getElementById('id01').style.display='none'" 
+                    class="w3-button w3-display-topright">&times;</span>
+                    <br>
+                    <form>
+                        <center>Unsere Mannschaft</center>
+                        <br>
+                        <label>Analysen:</label>
+                        <input type="text" name="weanalysis" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    &nbsp;
+    <div class="w3-container">
+        <button onclick="document.getElementById('id02').style.display='block'" 
+        class="w3-button w3-blue">Gegnerische Mannschaften</button>
+        <div id="id02" class="w3-modal">
+            <div class="w3-modal-content">
+                <div class="w3-container">
+                    <span onclick="document.getElementById('id02').style.display='none'" 
+                    class="w3-button w3-display-topright">&times;</span>
+                    <br>
+                    <form method="POST">
+                        <center>Gegnerische Mannschaften</center>
+                        <br>
+                        <select name="mannschaft">
+                            <?php
+                            $team = mysqli_query($link, "SELECT * FROM mannschaften");
+                            while ($c = mysqli_fetch_array($team)) {
+                                ?>
+                            <option value="<?php echo $c['id'] ?>"><?php echo $c['mannschaft'] ?></option>
+                            <?php } ?>
+                        </select>
+                        <br>
+                        <br>
+                        <label>Analysen:</label>
+                        <br>
+                        <textarea name="opponentanalysis" required></textarea>
+                        <br>
+                        <br>
+                        <button type="submit" name="submit">Speichern</button>
+                        <br>
+                        <br>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

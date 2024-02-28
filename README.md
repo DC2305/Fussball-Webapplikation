@@ -68,20 +68,20 @@ C:\xampp\htdocs\Fussball-Webapplikation> npx eslint js/yourfile.js
 1. [Composer](https://getcomposer.org/download/) installieren (wenn noch nicht installiert)
 2. In Kommandozeile folgendes eingeben, um PHP_CodeSniffer zu installieren:
 ```console
-C:\xampp\htdocs\Testkalender> composer global require "squizlabs/php_codesniffer=*"
+C:\xampp\htdocs\Fussball-Webapplikation> composer global require "squizlabs/php_codesniffer=*"
 ```
 3. In Kommandozeile folgendes eingeben, um mit PHP_CodeSniffer zu linten ("yourfile" mit Namen der PHP-Datei ersetzen, die man linten möchte):
 ```console
-C:\xampp\htdocs\Testkalender> phpcs C:/xampp/htdocs/Fussball-Webapplikation/src/yourfile.php
+C:\xampp\htdocs\Fussball-Webapplikation> phpcs C:/xampp/htdocs/Fussball-Webapplikation/src/yourfile.php
 ```
 
 **Stylelint**
 1. [Node.js](https://nodejs.org/en/download) installieren (wenn noch nicht installiert)
 2. In Kommandozeile folgendes eingeben, um Stylelint zu installieren:
 ```console
-C:\xampp\htdocs\Testkalender>npm init stylelint
+C:\xampp\htdocs\Fussball-Webapplikation> npm init stylelint
 ```
 3. In Kommandozeile folgendes eingeben, um mit Stylelint zu linten ("yourfile" mit Namen der CSS-Datei ersetzen, die man linten möchte):
 ```console
-C:\xampp\htdocs\Testkalender>npx stylelint "C:/xampp/htdocs/Fussball-Webapplikation/css/yourfile.css"
+C:\xampp\htdocs\Fussball-Webapplikation> npx stylelint "C:/xampp/htdocs/Fussball-Webapplikation/css/yourfile.css"
 ```
