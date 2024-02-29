@@ -119,11 +119,13 @@ require_once "config.php";
                         </div>
                         <div class="form-group">
                             <label>Stärken:</label>
-                            <textarea type="text" name="strengths" id="strengths" class="form-control" required></textarea>
+                            <textarea type="text" name="strengths" id="strengths" class="form-control" 
+                            required></textarea>
                         </div>
                         <div class="form-group">
                             <label>Schwächen:</label>
-                            <textarea type="text" name="weaknesses" id="weaknesses" class="form-control" required></textarea>
+                            <textarea type="text" name="weaknesses" id="weaknesses" class="form-control" 
+                            required></textarea>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -202,7 +204,8 @@ require_once "config.php";
                                 <td hidden> <?php echo htmlspecialchars($row['id'], ENT_QUOTES, "UTF-8"); ?> </td>
                                 <td> <?php echo htmlspecialchars($row['mannschaft'], ENT_QUOTES, "UTF-8"); ?> </td>
                                 <td hidden> <?php echo htmlspecialchars($row['stärken'], ENT_QUOTES, "UTF-8"); ?> </td>
-                                <td hidden> <?php echo htmlspecialchars($row['schwächen'], ENT_QUOTES, "UTF-8"); ?> </td>
+                                <td hidden> <?php echo htmlspecialchars($row['schwächen'], ENT_QUOTES, "UTF-8"); ?> 
+                                </td>
                                 <td>
                                     <button type="button" class="btn btn-success editbtn">Bearbeiten</button>
                                 </td>
